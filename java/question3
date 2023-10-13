@@ -1,0 +1,20 @@
+class question3{
+    public static boolean isPangram(String s) {
+        boolean[] alphabet = new boolean[26];
+        s = s.toLowerCase(); // Convert the string to lowercase for case-insensitivity
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) {
+                int index = c - 'a'; // Calculate the index in the alphabet array
+                alphabet[index] = true;
+            }
+        }
+        for (boolean letterPresent : alphabet) {
+            if (!letterPresent) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
